@@ -15,6 +15,7 @@ public class Service implements ServiceImpl {
         bookList.add(new Book(12, "English", "helen"));
     }
 
+
     @Override
     public List<Book> getBook() {
         return bookList;
@@ -22,50 +23,48 @@ public class Service implements ServiceImpl {
 
     @Override
     public Book getBook(int bookIsbnId) {
-       Book book=null;
+       Book book3=null;
         for (Book book1 : bookList) {
             if (book1.getIsbnNo() == bookIsbnId) {
-                book = book1;
+                book3 = book1;
                 break;
             }
         }
-        return book;
+        return book3;
     }
 
     @Override
-    public Book addBook(Book book) {
-        bookList.add(book);
-        return book;
+    public Book addBook(Book book4) {
+        bookList.add(book4);
+        return book4;
     }
 
     @Override
     public Book deleteBook(int isbnNo) {
-        Book book=null;
+        Book book2=null;
         for (Book book1 : bookList) {
             if (book1.getIsbnNo() == isbnNo) {
-                book = book1;
-                bookList.remove(book);
+                book2 = book1;
+                bookList.remove(book2);
                 break;
             }
         }
-        return book;
+        return book2;
     }
 
     @Override
-    public Book updateBook(int isbnNo, Book book) {
-        Book book1=null;
-        Book result = getBook(isbnNo);
-        for (Book  bookObj: bookList) {
+    public Book updateBook(int isbnNo,Book book) {
+       // Book book1 = null;
+        for (Book bookObj : bookList) {
             if (bookObj.getIsbnNo() == isbnNo) {
-                bookObj.setAuthor(book1.getAuthor());
-                bookObj.setBookName(book1.getBookName());
-
-                book1= bookObj;
+                bookObj.setIsbnNo(isbnNo);
+                bookObj.setBookName(book.getBookName());
+                bookObj.setAuthor(book.getAuthor());
+                book = bookObj;
                 break;
             }
         }
-        return book1;
+    return book;
+
     }
-
-
 }
