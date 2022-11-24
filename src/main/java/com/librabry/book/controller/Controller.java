@@ -40,6 +40,11 @@ public class Controller {
         return this.serviceImpl.deleteBook(Integer.parseInt(isbnNo));
 
     }
+    @PutMapping("/book/{isbnNo}")
+    public Book updateBook(@PathVariable int isbnNo, @RequestBody Book book) {
+        return this.serviceImpl.updateBook(isbnNo,book);
+    }
+
 
 
 }

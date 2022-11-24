@@ -52,9 +52,19 @@ public class Service implements ServiceImpl {
         }
         return bookObj1;
     }
-
-
-
-
+    @Override
+    public Book updateBook(int isbnNo,Book book) {
+        // Book book1 = null;
+        for (Book bookObj : bookList) {
+            if (bookObj.getIsbnNo() == isbnNo) {
+                bookObj.setIsbnNo(isbnNo);
+                bookObj.setBookName(book.getBookName());
+                bookObj.setAuthor(book.getAuthor());
+                book = bookObj;
+                break;
+            }
+        }
+        return book;
 
     }
+}

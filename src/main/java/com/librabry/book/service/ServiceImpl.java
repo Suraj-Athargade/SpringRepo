@@ -16,5 +16,5 @@ public interface ServiceImpl {
 
 
 
-  //  Book updateBook(int isbnNo,Book book);
+   Book updateBook(int isbnNo,Book book);
 }
