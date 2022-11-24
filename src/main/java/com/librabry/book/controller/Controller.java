@@ -27,18 +27,4 @@ public class Controller {
         return this.serviceImpl.getBook(isbnNo);
     }
 
-    @PostMapping("/book")
-    public Book addBook(@RequestBody Book book) {
-        return this.serviceImpl.addBook(book);
-    }
-
-    @PutMapping("/book/{isbnNo}")
-    public Book updateBook(@PathVariable int isbnNo, @RequestBody Book book) {
-        return this.serviceImpl.updateBook(isbnNo,book);
-    }
-
-    @DeleteMapping("/book/{isbnNo}")
-    public Book deleteBook(@PathVariable String isbnNo) {
-        return this.serviceImpl.deleteBook(Integer.parseInt(isbnNo));
-    }
 }

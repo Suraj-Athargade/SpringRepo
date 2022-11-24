@@ -33,38 +33,10 @@ public class Service implements ServiceImpl {
         return book3;
     }
 
-    @Override
-    public Book addBook(Book book4) {
-        bookList.add(book4);
-        return book4;
-    }
 
-    @Override
-    public Book deleteBook(int isbnNo) {
-        Book book2=null;
-        for (Book book1 : bookList) {
-            if (book1.getIsbnNo() == isbnNo) {
-                book2 = book1;
-                bookList.remove(book2);
-                break;
-            }
-        }
-        return book2;
-    }
 
-    @Override
-    public Book updateBook(int isbnNo,Book book) {
-       // Book book1 = null;
-        for (Book bookObj : bookList) {
-            if (bookObj.getIsbnNo() == isbnNo) {
-                bookObj.setIsbnNo(isbnNo);
-                bookObj.setBookName(book.getBookName());
-                bookObj.setAuthor(book.getAuthor());
-                book = bookObj;
-                break;
-            }
-        }
-    return book;
+
+
+
 
     }
-}

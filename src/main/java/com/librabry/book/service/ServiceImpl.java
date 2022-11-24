@@ -10,9 +10,7 @@ public interface ServiceImpl {
 
     Book getBook(int isbnNo);
 
-    Book addBook(Book book);
 
-    Book deleteBook(int isbnNo);
 
-    Book updateBook(int isbnNo,Book book);
+  //  Book updateBook(int isbnNo,Book book);
 }
