@@ -8,13 +8,13 @@ import java.util.List;
 public interface ServiceImpl {
     List<Book> getBook();
 
-    Book getBook(int isbnNo);
+    Book getBook(long isbnNo);
 
     List<Book> addBook(Book book);
 
-    Book deleteBook(int  isbnNo);
+    Book deleteBook(long  isbnNo);
 
-   Book updateBook(int isbnNo,Book book);
+   Book updateBook(long isbnNo,Book book);
 
    Book searchByAuthor(String authorName);
 

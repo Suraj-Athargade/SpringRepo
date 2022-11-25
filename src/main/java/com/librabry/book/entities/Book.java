@@ -1,9 +1,31 @@
 package com.librabry.book.entities;
 
+import java.util.Date;
+
 public class Book {
     private long isbnNo;
     private String  bookName;
     private String author;
+
+    private int authorId;
+
+    public int getAuthorId() {
+        return authorId;
+    }
+
+    public void setAuthorId(int authorId) {
+        this.authorId = authorId;
+    }
+
+    public int getYearOfPublication() {
+        return yearOfPublication;
+    }
+
+    public void setYearOfPublication(int yearOfPublication) {
+        this.yearOfPublication = yearOfPublication;
+    }
+
+    private int yearOfPublication;
 
     public long getIsbnNo() {
         return isbnNo;
@@ -29,22 +51,23 @@ public class Book {
         this.author = author;
     }
 
-    public Book() {
-    }
 
-    public Book(long isbnNo, String bookName, String author) {
+    public Book(long isbnNo, String bookName, String author, int authorId, int yearOfPublication) {
         this.isbnNo = isbnNo;
         this.bookName = bookName;
         this.author = author;
+        this.authorId = authorId;
+        this.yearOfPublication = yearOfPublication;
     }
 
     @Override
     public String toString() {
-        return "Book[ " +
-                "\n isbnNo=" + isbnNo +
-                ",\n bookName='" + bookName + '\'' +
-                ",\n author='" + author + '\'' +
-                ']';
+        return "Book{" +
+                "isbnNo=" + isbnNo +
+                ", bookName='" + bookName + '\'' +
+                ", author='" + author + '\'' +
+                ", authorId=" + authorId +
+                ", yearOfPublication=" + yearOfPublication +
+                '}';
     }
-
 }

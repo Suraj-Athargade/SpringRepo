@@ -1,5 +1,6 @@
 package com.librabry.book.service;
 
+import com.librabry.book.BookException.BookException;
 import com.librabry.book.entities.Book;
 
 import java.util.ArrayList;
@@ -10,20 +11,24 @@ public class Service implements ServiceImpl {
     List<Book> bookList = new ArrayList<>();
 
     public Service() {
-        bookList.add(new Book(10, "Math", "HCverma"));
-        bookList.add(new Book(11, "Science", "Golden"));
-        bookList.add(new Book(12, "English", "helen"));
     }
 
 
     @Override
     public List<Book> getBook() {
-        return bookList;
-    }
+//        if(bookList.isEmpty()){
+//                System.out.println("No Book Available..");
+//                return null;
+//        }
+//        else {
+            return bookList;
+        }
+
 
     @Override
-    public Book getBook(int bookIsbnId) {
+    public Book getBook(long bookIsbnId) {
        Book book=null;
+
         for (Book bookObj : bookList) {
             if (bookObj.getIsbnNo() == bookIsbnId) {
                 book = bookObj;
@@ -35,18 +40,22 @@ public class Service implements ServiceImpl {
 
     @Override
     public List<Book> addBook(Book book){
-        String name=book.getBookName();
-        if(name.length()>4) {
+        String isbnLen=String.valueOf(book.getIsbnNo());
+
+        try{
+            
+        if((isbnLen.length()==10)&&(book.getBookName().length()>4)&& (book.getYearOfPublication()>1980))
             bookList.add(book);
-        }else{
-            System.out.println("length must be greater than 4");
+            throw new BookException();
+        } catch (BookException e) {
+            e.printStackTrace();
         }
         return bookList;
     }
 
 
     @Override
-    public Book deleteBook(int isbnNo){
+    public Book deleteBook(long isbnNo){
         Book bookObj1 = null;
         for(Book bookObj2: bookList){
             if(bookObj2.getIsbnNo() == isbnNo){
@@ -58,13 +67,15 @@ public class Service implements ServiceImpl {
         return bookObj1;
     }
     @Override
-    public Book updateBook(int isbnNo, Book book) {
+    public Book updateBook(long isbnNo, Book book) {
          Book book1 = null;
         for (Book bookObj : bookList) {
             if (bookObj.getIsbnNo() == isbnNo) {
                 bookObj.setIsbnNo(isbnNo);
                 bookObj.setBookName(book.getBookName());
                 bookObj.setAuthor(book.getAuthor());
+                bookObj.setAuthorId((book.getAuthorId()));
+                bookObj.setYearOfPublication((book.getYearOfPublication()));
                 book1 = bookObj;
                 break;
             }
