@@ -41,13 +41,13 @@ public class Service implements ServiceImpl {
     @Override
     public List<Book> addBook(Book book){
         String isbnLen=String.valueOf(book.getIsbnNo());
-
         try{
-            
-        if((isbnLen.length()==10)&&(book.getBookName().length()>4)&& (book.getYearOfPublication()>1980))
-            bookList.add(book);
-            throw new BookException();
-        } catch (BookException e) {
+                if((isbnLen.length()==10)&&(book.getBookName().length()>4)&& (book.getYearOfPublication()>1980)) {
+                    bookList.add(book);
+                }else{
+                 throw new BookException();
+                }
+        }catch (BookException e) {
             e.printStackTrace();
         }
         return bookList;
