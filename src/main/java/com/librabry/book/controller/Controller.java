@@ -19,30 +19,34 @@ public class Controller {
 
     @GetMapping("/book")
     public List<Book> getBook() {
-        return this.serviceImpl.getBook();
+        return serviceImpl.getBook();
     }
 
-    @GetMapping("/book/{isbnNo}")
-    public Book getIsbnNo(@PathVariable int isbnNo) {
+    @GetMapping("/book/ById/{isbnNo}")
+    public Book getByIsbnNo(@PathVariable int isbnNo) {
         return this.serviceImpl.getBook(isbnNo);
     }
 
-    @PostMapping("/book")
-    public Book addBook(@RequestBody Book book ) {
+    @PostMapping("/book/add")
+    public List<Book> addBook(@RequestBody Book book ) {
 
         return this.serviceImpl.addBook(book);
 
     }
 
-    @DeleteMapping("/book/{isbnNo}")
+    @DeleteMapping("/book/delete/{isbnNo}")
     public Book deleteBook(@PathVariable String isbnNo) {
 
         return this.serviceImpl.deleteBook(Integer.parseInt(isbnNo));
 
     }
-    @PutMapping("/book/{isbnNo}")
-    public Book updateBook(@PathVariable int isbnNo, @RequestBody Book book) {
-        return this.serviceImpl.updateBook(isbnNo,book);
+    @PutMapping("/book/update/{isbnNo}")
+    public Book updateBook(@PathVariable int isbnNo,@RequestBody Book book) {
+        return serviceImpl.updateBook(isbnNo,book);
+    }
+    @GetMapping("/book/author/{author}")
+    public Book searchByAuthor(@PathVariable String author){
+        return this.serviceImpl.searchByAuthor(author);
     }
 
 

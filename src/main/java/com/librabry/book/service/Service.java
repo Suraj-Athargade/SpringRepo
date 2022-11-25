@@ -23,20 +23,25 @@ public class Service implements ServiceImpl {
 
     @Override
     public Book getBook(int bookIsbnId) {
-       Book book3=null;
-        for (Book book1 : bookList) {
-            if (book1.getIsbnNo() == bookIsbnId) {
-                book3 = book1;
+       Book book=null;
+        for (Book bookObj : bookList) {
+            if (bookObj.getIsbnNo() == bookIsbnId) {
+                book = bookObj;
                 break;
             }
         }
-        return book3;
+        return book;
     }
 
     @Override
-    public Book addBook(Book book){
-        bookList.add(book);
-        return book;
+    public List<Book> addBook(Book book){
+        String name=book.getBookName();
+        if(name.length()>4) {
+            bookList.add(book);
+        }else{
+            System.out.println("length must be greater than 4");
+        }
+        return bookList;
     }
 
 
@@ -53,18 +58,33 @@ public class Service implements ServiceImpl {
         return bookObj1;
     }
     @Override
-    public Book updateBook(int isbnNo,Book book) {
-        // Book book1 = null;
+    public Book updateBook(int isbnNo, Book book) {
+         Book book1 = null;
         for (Book bookObj : bookList) {
             if (bookObj.getIsbnNo() == isbnNo) {
                 bookObj.setIsbnNo(isbnNo);
                 bookObj.setBookName(book.getBookName());
                 bookObj.setAuthor(book.getAuthor());
-                book = bookObj;
+                book1 = bookObj;
+                break;
+            }
+        }
+        return book1;
+
+    }
+
+    @Override
+    public Book searchByAuthor(String authorName) {
+        Book book=null;
+        for(Book bookObj1:bookList){
+            if(bookObj1.getAuthor().equalsIgnoreCase(authorName)){
+                bookObj1.setAuthor(authorName);
+                book=bookObj1;
                 break;
             }
         }
         return book;
-
     }
+
+
 }
