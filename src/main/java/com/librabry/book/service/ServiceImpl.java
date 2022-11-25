@@ -12,7 +12,7 @@ public interface ServiceImpl {
 
     List<Book> addBook(Book book);
 
-    Book deleteBook(long  isbnNo);
+    String deleteBook(long  isbnNo);
 
    Book updateBook(long isbnNo,Book book);
 

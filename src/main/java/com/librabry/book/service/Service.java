@@ -1,6 +1,6 @@
 package com.librabry.book.service;
 
-import com.librabry.book.BookException.BookException;
+import com.librabry.book.BookException.InvalidEntryException;
 import com.librabry.book.entities.Book;
 
 import java.util.ArrayList;
@@ -45,9 +45,9 @@ public class Service implements ServiceImpl {
                 if((isbnLen.length()==10)&&(book.getBookName().length()>4)&& (book.getYearOfPublication()>1980)) {
                     bookList.add(book);
                 }else{
-                 throw new BookException();
+                 throw new InvalidEntryException();
                 }
-        }catch (BookException e) {
+        }catch (InvalidEntryException e) {
             e.printStackTrace();
         }
         return bookList;
@@ -55,16 +55,16 @@ public class Service implements ServiceImpl {
 
 
     @Override
-    public Book deleteBook(long isbnNo){
-        Book bookObj1 = null;
+    public String deleteBook(long isbnNo){
+       // Book bookObj1 = null;
         for(Book bookObj2: bookList){
             if(bookObj2.getIsbnNo() == isbnNo){
-                bookObj1 = bookObj2;
-                bookList.remove(bookObj1);
+//                bookObj1 = bookObj2;
+                bookList.remove(bookObj2);
                 break;
             }
         }
-        return bookObj1;
+        return "successfully deleted.....";
     }
     @Override
     public Book updateBook(long isbnNo, Book book) {

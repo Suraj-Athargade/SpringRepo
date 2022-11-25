@@ -8,6 +8,7 @@ public class Book {
     private String author;
 
     private int authorId;
+    private int yearOfPublication;
 
     public int getAuthorId() {
         return authorId;
@@ -25,7 +26,7 @@ public class Book {
         this.yearOfPublication = yearOfPublication;
     }
 
-    private int yearOfPublication;
+
 
     public long getIsbnNo() {
         return isbnNo;

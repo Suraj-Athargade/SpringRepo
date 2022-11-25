@@ -37,7 +37,7 @@ public class Controller {
     }
 
     @DeleteMapping("/book/delete/{isbnNo}")
-    public Book deleteBook(@PathVariable String isbnNo) {
+    public String deleteBook(@PathVariable String isbnNo) {
         return this.serviceImpl.deleteBook(Long.parseLong(isbnNo));
     }
     @PutMapping("/book/update/{isbnNo}")
