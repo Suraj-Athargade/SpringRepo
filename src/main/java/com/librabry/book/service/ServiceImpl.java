@@ -1,6 +1,5 @@
 package com.librabry.book.service;
 
-import com.librabry.book.BookException.EmptyListException;
 import com.librabry.book.BookException.InvalidEntryException;
 import com.librabry.book.entities.Book;
 
@@ -24,13 +23,7 @@ public class ServiceImpl implements ServiceInterface {
 
     @Override
     public List<Book> getBook() {
-        try {
-            if (bookList.isEmpty()) {
-                throw new EmptyListException("No Book are present ...");
-            }
-            }catch (EmptyListException e) {
-            System.out.println(e);
-        }
+        
         return bookList;
     }
     @Override
@@ -89,6 +82,7 @@ public class ServiceImpl implements ServiceInterface {
                 bookObj.setAuthorId((book.getAuthorId()));
                 bookObj.setYearOfPublication((book.getYearOfPublication()));
                 book1 = bookObj;
+                System.out.println("successfully updated the existing entry ");
                 break;
             }
         }
