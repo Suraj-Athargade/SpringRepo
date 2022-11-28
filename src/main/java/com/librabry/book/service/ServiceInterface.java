@@ -12,11 +12,11 @@ public interface ServiceInterface {
 
     Book getBook(long isbnNo);
 
-    List<Book> addBook(Book book);
+    String addBook(Book book);
 
     String deleteBook(long  isbnNo);
 
-   Book updateBook(long isbnNo,Book book);
+   String updateBook(long isbnNo,Book book);
 
    Book searchByAuthor(String authorName);
 

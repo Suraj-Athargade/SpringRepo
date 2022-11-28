@@ -23,7 +23,7 @@ public class ServiceImpl implements ServiceInterface {
 
     @Override
     public List<Book> getBook() {
-        
+
         return bookList;
     }
     @Override
@@ -46,7 +46,7 @@ public class ServiceImpl implements ServiceInterface {
     }
 
     @Override
-    public List<Book> addBook(Book book){
+    public String addBook(Book book){
         String isbnLen=String.valueOf(book.getIsbnNo());
         try{
                 if(isbnLen.length()!=10) {
@@ -59,7 +59,7 @@ public class ServiceImpl implements ServiceInterface {
         }catch (InvalidEntryException e) {
             System.out.println(e);
         }
-        return bookList;
+        return "Successfully added....";
     }
     @Override
     public String deleteBook(long isbnNo){
@@ -72,8 +72,8 @@ public class ServiceImpl implements ServiceInterface {
         return "successfully deleted.....";
     }
     @Override
-    public Book updateBook(long isbnNo, Book book) {
-         Book book1 = null;
+    public String updateBook(long isbnNo, Book book) {
+
         for (Book bookObj : bookList) {
             if (bookObj.getIsbnNo() == isbnNo) {
                 bookObj.setIsbnNo(isbnNo);
@@ -81,12 +81,10 @@ public class ServiceImpl implements ServiceInterface {
                 bookObj.setAuthor(book.getAuthor());
                 bookObj.setAuthorId((book.getAuthorId()));
                 bookObj.setYearOfPublication((book.getYearOfPublication()));
-                book1 = bookObj;
-                System.out.println("successfully updated the existing entry ");
                 break;
             }
         }
-        return book1;
+        return "successfully updated the existing entry ";
 
     }
 

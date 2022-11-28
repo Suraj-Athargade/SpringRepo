@@ -35,7 +35,7 @@ public class Controller {
     }
 
     @PostMapping("/book/add")
-    public List<Book> addBook(@RequestBody Book book ) {
+    public String addBook(@RequestBody Book book ) {
         return this.serviceInterface.addBook(book);
     }
 
@@ -44,7 +44,7 @@ public class Controller {
         return this.serviceInterface.deleteBook(Long.parseLong(isbnNo));
     }
     @PutMapping("/book/update/{isbnNo}")
-    public Book updateBook(@PathVariable long isbnNo,@RequestBody Book book) {
+    public String updateBook(@PathVariable long isbnNo,@RequestBody Book book) {
         return serviceInterface.updateBook(isbnNo,book);
     }
 }
