@@ -1,0 +1,49 @@
+2022-11-28 12:38:12,321 INFO  StartupInfoLogger:55 - [] Starting BookApplication using Java 19.0.1 on LIN51010078 with PID 49748 (C:\Users\hpralhad\Desktop\Library\SpringRepo\target\classes started by hpralhad in C:\Users\hpralhad\Desktop\Library\SpringRepo)
+2022-11-28 12:38:12,335 INFO  SpringApplication:634 - [] No active profile set, falling back to 1 default profile: "default"
+2022-11-28 12:38:15,449 INFO  TomcatWebServer:108 - [] Tomcat initialized with port(s): 8080 (http)
+2022-11-28 12:38:15,495 INFO  DirectJDKLog:173 - [] Starting service [Tomcat]
+2022-11-28 12:38:15,497 INFO  DirectJDKLog:173 - [] Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-11-28 12:38:15,853 INFO  DirectJDKLog:173 - [] Initializing Spring embedded WebApplicationContext
+2022-11-28 12:38:15,855 INFO  ServletWebServerApplicationContext:292 - [] Root WebApplicationContext: initialization completed in 3304 ms
+2022-11-28 12:38:16,994 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-28 12:38:17,016 INFO  StartupInfoLogger:61 - [] Started BookApplication in 5.83 seconds (JVM running for 7.402)
+2022-11-28 12:38:30,264 INFO  DirectJDKLog:173 - [] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-11-28 12:38:30,266 INFO  FrameworkServlet:525 - [] Initializing Servlet 'dispatcherServlet'
+2022-11-28 12:38:30,271 INFO  FrameworkServlet:547 - [] Completed initialization in 3 ms
+2022-11-28 12:38:30,649 INFO  Controller:48 - [] Book added
+2022-11-28 12:40:30,261 INFO  Controller:48 - [] Book added
+2022-11-28 12:41:34,583 INFO  StartupInfoLogger:55 - Starting BookApplication using Java 19.0.1 on LIN51010078 with PID 48652 (C:\Users\hpralhad\Desktop\Library\SpringRepo\target\classes started by hpralhad in C:\Users\hpralhad\Desktop\Library\SpringRepo)
+2022-11-28 12:41:34,598 INFO  SpringApplication:634 - No active profile set, falling back to 1 default profile: "default"
+2022-11-28 12:41:37,923 INFO  TomcatWebServer:108 - Tomcat initialized with port(s): 8080 (http)
+2022-11-28 12:41:37,955 INFO  DirectJDKLog:173 - Starting service [Tomcat]
+2022-11-28 12:41:37,957 INFO  DirectJDKLog:173 - Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-11-28 12:41:38,242 INFO  DirectJDKLog:173 - Initializing Spring embedded WebApplicationContext
+2022-11-28 12:41:38,244 INFO  ServletWebServerApplicationContext:292 - Root WebApplicationContext: initialization completed in 3426 ms
+2022-11-28 12:41:39,471 INFO  TomcatWebServer:220 - Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-28 12:41:39,490 INFO  StartupInfoLogger:61 - Started BookApplication in 6.027 seconds (JVM running for 7.521)
+2022-11-28 12:41:44,918 INFO  DirectJDKLog:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-11-28 12:41:44,919 INFO  FrameworkServlet:525 - Initializing Servlet 'dispatcherServlet'
+2022-11-28 12:41:44,922 INFO  FrameworkServlet:547 - Completed initialization in 2 ms
+2022-11-28 12:41:45,239 INFO  Controller:48 - Book added
+2022-11-28 12:45:21,343 INFO  StartupInfoLogger:55 - [] Starting BookApplication using Java 19.0.1 on LIN51010078 with PID 15004 (C:\Users\hpralhad\Desktop\Library\SpringRepo\target\classes started by hpralhad in C:\Users\hpralhad\Desktop\Library\SpringRepo)
+2022-11-28 12:45:21,359 INFO  SpringApplication:634 - [] No active profile set, falling back to 1 default profile: "default"
+2022-11-28 12:45:24,511 INFO  TomcatWebServer:108 - [] Tomcat initialized with port(s): 8080 (http)
+2022-11-28 12:45:24,558 INFO  DirectJDKLog:173 - [] Starting service [Tomcat]
+2022-11-28 12:45:24,560 INFO  DirectJDKLog:173 - [] Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-11-28 12:45:24,935 INFO  DirectJDKLog:173 - [] Initializing Spring embedded WebApplicationContext
+2022-11-28 12:45:24,936 INFO  ServletWebServerApplicationContext:292 - [] Root WebApplicationContext: initialization completed in 3324 ms
+2022-11-28 12:45:26,084 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-28 12:45:26,101 INFO  StartupInfoLogger:61 - [] Started BookApplication in 6.03 seconds (JVM running for 7.84)
+2022-11-28 12:45:39,831 INFO  DirectJDKLog:173 - [] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-11-28 12:45:39,834 INFO  FrameworkServlet:525 - [] Initializing Servlet 'dispatcherServlet'
+2022-11-28 12:45:39,837 INFO  FrameworkServlet:547 - [] Completed initialization in 2 ms
+2022-11-28 12:45:40,318 INFO  Controller:48 - [] Book added
+2022-11-28 12:58:08,089 INFO  StartupInfoLogger:55 - [] Starting BookApplication using Java 19.0.1 on LIN51010078 with PID 51912 (C:\Users\hpralhad\Desktop\Library\SpringRepo\target\classes started by hpralhad in C:\Users\hpralhad\Desktop\Library\SpringRepo)
+2022-11-28 12:58:08,099 INFO  SpringApplication:634 - [] No active profile set, falling back to 1 default profile: "default"
+2022-11-28 12:58:11,884 INFO  TomcatWebServer:108 - [] Tomcat initialized with port(s): 8080 (http)
+2022-11-28 12:58:11,928 INFO  DirectJDKLog:173 - [] Starting service [Tomcat]
+2022-11-28 12:58:11,930 INFO  DirectJDKLog:173 - [] Starting Servlet engine: [Apache Tomcat/9.0.68]
+2022-11-28 12:58:12,353 INFO  DirectJDKLog:173 - [] Initializing Spring embedded WebApplicationContext
+2022-11-28 12:58:12,355 INFO  ServletWebServerApplicationContext:292 - [] Root WebApplicationContext: initialization completed in 4119 ms
+2022-11-28 12:58:13,207 INFO  TomcatWebServer:220 - [] Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-28 12:58:13,226 INFO  StartupInfoLogger:61 - [] Started BookApplication in 6.832 seconds (JVM running for 8.346)
