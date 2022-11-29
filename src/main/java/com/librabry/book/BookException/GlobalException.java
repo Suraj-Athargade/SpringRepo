@@ -1,0 +1,19 @@
+package com.librabry.book.BookException;
+
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ControllerAdvice
+public class GlobalException {
+
+    @ExceptionHandler(value=InvalidEntryException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public @ResponseBody ErrorResponse InvalidEntryException(InvalidEntryException e){
+        return new ErrorResponse(HttpStatus.CONFLICT.value(),e.getMessage());
+    }
+
+}

@@ -1,6 +1,8 @@
 package com.librabry.book.controller;
 
 
+import com.librabry.book.BookException.EmptyListException;
+import com.librabry.book.BookException.InvalidEntryException;
 import com.librabry.book.entities.Book;
 import com.librabry.book.service.ServiceInterface;
 import org.slf4j.Logger;
@@ -26,7 +28,7 @@ public class Controller {
     }
 
     @GetMapping("/book")
-    public List<Book> getBook()  {
+    public List<Book> getBook()  throws EmptyListException {
         logger.info("List of books displayed");
         //logger.warn("No books present");
         return this.serviceInterface.getBook();
@@ -38,20 +40,20 @@ public class Controller {
         return this.serviceInterface.getBook(isbnNo);
     }
     @GetMapping("/book/author/{author}")
-    public Book searchByAuthor(@PathVariable String author){
+    public String searchByAuthor(@PathVariable String author){
         logger.info("List of books for given author");
         return this.serviceInterface.searchByAuthor(author);
     }
 
     @PostMapping("/book/add")
-    public String addBook(@RequestBody Book book ) {
+    public String addBook(@RequestBody Book book )throws InvalidEntryException {
         return this.serviceInterface.addBook(book);
     }
 
     @DeleteMapping("/book/delete/{isbnNo}")
-    public String deleteBook(@PathVariable String isbnNo) {
+    public String deleteBook(@PathVariable long isbnNo) {
         logger.info("Book deleted");
-        return this.serviceInterface.deleteBook(Long.parseLong(isbnNo));
+        return this.serviceInterface.deleteBook(isbnNo);
     }
     @PutMapping("/book/update/{isbnNo}")
     public String updateBook(@PathVariable long isbnNo,@RequestBody Book book) {

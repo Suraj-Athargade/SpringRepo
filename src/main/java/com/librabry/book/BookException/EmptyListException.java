@@ -1,8 +1,8 @@
 package com.librabry.book.BookException;
 
-public class EmptyListException extends Exception{
+public class EmptyListException extends RuntimeException{
 
     public EmptyListException(String msg){
-        System.out.println(msg);
+        super(msg);
     }
 }
