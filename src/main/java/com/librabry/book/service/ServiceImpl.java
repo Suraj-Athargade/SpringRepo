@@ -12,8 +12,10 @@ public class ServiceImpl implements ServiceInterface {
       //  bookList.add(new Book(1234567890,"maths","michel",22,2001));
     }
     @Override
-    public List<Book> getBook()  {
+    public List<Book> getBook() throws EmptyListException  {
 
+        if(bookList.isEmpty()){
+            throw new EmptyListException("No books present");}
         return bookList;
     }
     @Override
@@ -32,8 +34,8 @@ public class ServiceImpl implements ServiceInterface {
     @Override
     public String addBook(Book book) throws InvalidEntryException{
         String isbnLen=String.valueOf(book.getIsbnNo());
-        String authorId=String.valueOf(book.getAuthorId());
-        String regex="^[a-zA-Z0-9]*$";
+//        String authorId=String.valueOf(book.getAuthorId());
+//        String regex="^[a-zA-Z0-9]*$";
 
         for(Book bookobj:bookList){
            if( book.getIsbnNo()==bookobj.getIsbnNo())
@@ -45,8 +47,8 @@ public class ServiceImpl implements ServiceInterface {
                     throw new InvalidEntryException("length of Book Name must be more than 4 character ..");}
                 if(!(book.getYearOfPublication()>1980)){
                     throw new InvalidEntryException("this System only accepts entry of Book that are Publish after 1980");}
-                if((authorId.length()==3) || authorId.matches(regex)){
-                    throw  new InvalidEntryException("Author Id is invalid");}
+//                if((authorId.length()==3) || authorId.matches(regex)){
+//                    throw  new InvalidEntryException("Author Id is invalid");}
                 else bookList.add(book);
         return "Successfully added....";
     }

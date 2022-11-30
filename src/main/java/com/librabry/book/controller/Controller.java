@@ -47,6 +47,7 @@ public class Controller {
 
     @PostMapping("/book/add")
     public String addBook(@RequestBody Book book )throws InvalidEntryException {
+        logger.info("Book added");
         return this.serviceInterface.addBook(book);
     }
 
@@ -57,6 +58,7 @@ public class Controller {
     }
     @PutMapping("/book/update/{isbnNo}")
     public String updateBook(@PathVariable long isbnNo,@RequestBody Book book) {
+        logger.info("Book updated");
         return serviceInterface.updateBook(isbnNo,book);
     }
 }

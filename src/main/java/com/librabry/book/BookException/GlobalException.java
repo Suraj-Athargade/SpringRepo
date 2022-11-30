@@ -16,4 +16,10 @@ public class GlobalException {
         return new ErrorResponse(HttpStatus.CONFLICT.value(),e.getMessage());
     }
 
+    @ExceptionHandler(value=EmptyListException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public @ResponseBody ErrorResponse EmptyListException(EmptyListException e){
+        return new ErrorResponse((HttpStatus.BAD_REQUEST.value()),e.getMessage());
+    }
+
 }
