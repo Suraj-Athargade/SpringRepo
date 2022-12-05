@@ -16,49 +16,40 @@ import java.util.List;
 @RestController
 public class Controller {
 
-    Logger logger = LoggerFactory.getLogger(Controller.class);
-
     @Autowired
     private ServiceInterface serviceInterface;
 
-    @RequestMapping("/home")
-    public String home() {
-        logger.info("Library spring project started");
-        return "welcome to the Library spring project.....";
-    }
-
-    @GetMapping("/book")
-    public List<Book> getBook()  throws EmptyListException {
-        logger.info("List of books displayed");
+    @GetMapping("/books")
+    public List<Book> getBooks() { //todo
+       // logger.info("List of books displayed");
         //logger.warn("No books present");
-        return this.serviceInterface.getBook();
+        return this.serviceInterface.getBooks();
     }
 
-    @GetMapping("/book/ById/{isbnNo}")
-    public Book getByIsbnNo(@PathVariable long isbnNo) {
-        logger.info("Book with given isbnNo");
-        return this.serviceInterface.getBook(isbnNo);
+    @GetMapping("/books/getBookByIsbnNo/{isbnNo}")//getbookbyIsbnNo-done
+    public Book getBookByIsbnNo(@PathVariable long isbnNo) {
+        return this.serviceInterface.getBookByIsbnNo(isbnNo);
     }
-    @GetMapping("/book/author/{author}")
-    public String searchByAuthor(@PathVariable String author){
-        logger.info("List of books for given author");
+    @GetMapping("/books/author/{author}")
+    public List<Book> searchByAuthor(@PathVariable String author){
+
         return this.serviceInterface.searchByAuthor(author);
     }
 
-    @PostMapping("/book/add")
-    public String addBook(@RequestBody Book book )throws InvalidEntryException {
-        logger.info("Book added");
+    @PostMapping("/books/add")
+    public List<Book> addBook(@RequestBody Book book ) {
+
         return this.serviceInterface.addBook(book);
     }
 
-    @DeleteMapping("/book/delete/{isbnNo}")
+    @DeleteMapping("/books/delete/{isbnNo}")
     public String deleteBook(@PathVariable long isbnNo) {
-        logger.info("Book deleted");
+
         return this.serviceInterface.deleteBook(isbnNo);
     }
-    @PutMapping("/book/update/{isbnNo}")
-    public String updateBook(@PathVariable long isbnNo,@RequestBody Book book) {
-        logger.info("Book updated");
+    @PutMapping("/books/update/{isbnNo}")
+    public Book updateBook(@PathVariable long isbnNo,@RequestBody Book book) {
+
         return serviceInterface.updateBook(isbnNo,book);
     }
 }

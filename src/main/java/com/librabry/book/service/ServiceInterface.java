@@ -9,17 +9,17 @@ import java.util.List;
 import java.util.Set;
 
 public interface ServiceInterface {
-    List<Book> getBook() throws EmptyListException;
+    List<Book> getBooks() ;//todo-done
 
-    Book getBook(long isbnNo);
+    Book getBookByIsbnNo(long isbnNo);
 
-    String addBook(Book book) throws InvalidEntryException;
+    List<Book> addBook(Book book);//todo-done
 
     String deleteBook(long  isbnNo);
 
-   String updateBook(long isbnNo,Book book);
+   Book updateBook(long isbnNo,Book book);
 
-   String searchByAuthor(String authorName);
+   List<Book> searchByAuthor(String authorName);
 
 
 }
