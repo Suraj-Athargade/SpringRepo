@@ -60,7 +60,7 @@ public class ServiceImpl implements ServiceInterface {
      * @throws InvalidEntryException
      */
     @Override
-    public List<Book> addBook(Book book){
+    public Book addBook(Book book){
         String isbnLen=String.valueOf(book.getIsbnNo());
 //        String authorId=String.valueOf(book.getAuthorId());
 //        String regex="^[a-zA-Z0-9]*$";
@@ -71,13 +71,13 @@ public class ServiceImpl implements ServiceInterface {
         }
                 if(isbnLen.length()!=10) {
                     throw new InvalidEntryException("IsbnNumber must be of 10 digits...");}
-                if(!(book.getBookName().length()>4)) {
+                if(!(book.getBookName().length()>4)&&(book.getBookName()!=null)) {
                     throw new InvalidEntryException("length of Book Name must be more than 4 character ..");}
                 if(!(book.getYearOfPublication()>1980)){
                     throw new InvalidEntryException("this System only accepts entry of Book that are Publish after 1980");}
                 else bookList.add(book);
-        logger.info("Book successfully added /n"+book);//todo-done
-        return bookList;//todo-done
+        logger.info("Book successfully added "+book);//todo-done
+        return book;//todo-done
     }
 
     /**
@@ -134,11 +134,11 @@ public class ServiceImpl implements ServiceInterface {
     public List<Book> searchByAuthor(String authorName) {//todo-done
         List<Book> bookList2 = new ArrayList<>();
         for(Book book1:bookList){
-            if (bookList.contains(book1.getAuthor().contains(authorName)))
+            if (book1.getAuthor().equals(authorName))
                 bookList2.add(book1);
         }
         if(bookList2.isEmpty())
-            throw new InvalidEntryException("no book are present in library with author name "+authorName);
+        { throw new InvalidEntryException("no book are present in library with author name "+authorName);}
         logger.info("List of books for given author");
         return bookList2;
     }

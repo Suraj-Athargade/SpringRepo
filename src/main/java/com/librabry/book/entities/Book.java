@@ -71,4 +71,7 @@ public class Book {
                 ", yearOfPublication=" + yearOfPublication +
                 '}';
     }
+
+    public Book() {
+    }
 }

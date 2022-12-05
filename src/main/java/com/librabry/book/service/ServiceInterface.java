@@ -13,7 +13,7 @@ public interface ServiceInterface {
 
     Book getBookByIsbnNo(long isbnNo);
 
-    List<Book> addBook(Book book);//todo-done
+    Book addBook(Book book);//todo-done
 
     String deleteBook(long  isbnNo);
 

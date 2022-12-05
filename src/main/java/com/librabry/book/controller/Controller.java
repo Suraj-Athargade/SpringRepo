@@ -20,7 +20,7 @@ public class Controller {
     private ServiceInterface serviceInterface;
 
     @GetMapping("/books")
-    public List<Book> getBooks() { //todo
+    public List<Book> getBooks() { //todo-done
        // logger.info("List of books displayed");
         //logger.warn("No books present");
         return this.serviceInterface.getBooks();
@@ -30,14 +30,14 @@ public class Controller {
     public Book getBookByIsbnNo(@PathVariable long isbnNo) {
         return this.serviceInterface.getBookByIsbnNo(isbnNo);
     }
-    @GetMapping("/books/author/{author}")
+    @GetMapping("/books/getByAuthor/{author}")
     public List<Book> searchByAuthor(@PathVariable String author){
 
         return this.serviceInterface.searchByAuthor(author);
     }
 
     @PostMapping("/books/add")
-    public List<Book> addBook(@RequestBody Book book ) {
+    public Book addBook(@RequestBody Book book ) {
 
         return this.serviceInterface.addBook(book);
     }
