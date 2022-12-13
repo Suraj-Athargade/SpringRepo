@@ -83,25 +83,5 @@ Controller controller;
         serviceInterface.addBook(book);
         assertThrows(InvalidEntryException.class,()->serviceInterface.addBook(book),"no book are present in library with this author name");
     }
-    @Order(6)
-    @Test
-    void updateBookTest() {
 
-        book.setIsbnNo(7676767676L);
-        book.setBookName("science");
-        serviceInterface.addBook(book);
-        Book actual=serviceInterface.updateBook(book.getIsbnNo(),book);
-        Book expected =serviceInterface.getBookByIsbnNo(book.getIsbnNo());
-        assertEquals(expected,actual);
-
-       // assertThrows(InvalidEntryException.class,()->serviceInterface.updateBook(7676767676L,book),"invalid entry");
-    }
-    @Order(7)
-    @Test
-    void deleteBookIfPresentTest() {
-
-        assertThrows(InvalidEntryException.class,()->serviceInterface.deleteBook(12345678909L),"invalid entry");
-
-       // assertEquals(expected,actual);
-    }
 }
