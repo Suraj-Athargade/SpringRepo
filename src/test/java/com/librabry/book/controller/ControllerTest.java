@@ -82,4 +82,25 @@ class ControllerTest {
                         .content(mapper.writeValueAsString(book)))
                 .andExpect(status().isAccepted());
     }
+
+    @Order(5)
+    @Test
+    void updateBookTestController() throws Exception {
+        // serviceInterface.addBook(book);
+        ObjectMapper mapper=new ObjectMapper();
+        this.mockMvc.perform(put("/books/update/1234567890")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(mapper.writeValueAsString(book))).andExpect(status().isCreated());
+    }
+    @Order(6)
+    @Test
+    void deleteByIsbnNoTestController() throws Exception{
+        ObjectMapper mapper=new ObjectMapper();
+        //serviceInterface.addBook(book);
+        this.mockMvc.perform(delete("/books/deleteBookByIsbnNo/1234567890")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(mapper.writeValueAsString(book)))
+                .andExpect(status().isAccepted());
+    }
+
 }
