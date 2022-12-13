@@ -14,24 +14,21 @@ public class ServiceImpl implements ServiceInterface {
     Logger logger = LoggerFactory.getLogger(Controller.class);
     List<Book> bookList = new ArrayList<>();
     public ServiceImpl() {
-      //  bookList.add(new Book(1234567890,"maths","michel",22,2001));
     }
 
     /**
-     *
      * @return Books list
      * @throws EmptyListException
      */
     @Override
     public List<Book> getBooks()  {
-        logger.info("Library spring project started");
+        logger.info("getting book from library ");
         if(bookList.isEmpty()){
             throw new EmptyListException("No books present");}
         return bookList;
     }
 
     /**
-     *
      * @param bookIsbnId
      * @return book with given isbn number
      * @throws InvalidEntryException
@@ -42,40 +39,32 @@ public class ServiceImpl implements ServiceInterface {
         for (Book bookObj : bookList) {
             if (bookObj.getIsbnNo() == bookIsbnId) {
                 book = bookObj;
-                break;
-            }
+                break;}
         }
-            if(book==null){
-                throw new InvalidEntryException("Invalid Isbn No :-"+bookIsbnId);
-            }
-
+        if(book==null){throw new InvalidEntryException("Invalid Isbn No :-"+bookIsbnId);}
         logger.info("Book with given isbnNo");
         return book;
     }
 
     /**
-     *
      * @param book
      * @return new book object
      * @throws InvalidEntryException
      */
     @Override
     public Book addBook(Book book){
-        String isbnLen=String.valueOf(book.getIsbnNo());
-//        String authorId=String.valueOf(book.getAuthorId());
-//        String regex="^[a-zA-Z0-9]*$";
-
         for(Book bookobj:bookList){//todo
            if( book.getIsbnNo()==bookobj.getIsbnNo())
                throw new InvalidEntryException("same book is already present ");
         }
-                if(isbnLen.length()!=10) {
+        String isbnLen=String.valueOf(book.getIsbnNo());
+        if(isbnLen.length()!=10) {
                     throw new InvalidEntryException("IsbnNumber must be of 10 digits...");}
-                if(!(book.getBookName().length()>4)&&(book.getBookName()!=null)) {
+        if(!(book.getBookName().length()>4)&&(book.getBookName()!=null)) {
                     throw new InvalidEntryException("length of Book Name must be more than 4 character ..");}
-                if(!(book.getYearOfPublication()>1980)){
+        if(!(book.getYearOfPublication()>1980)){
                     throw new InvalidEntryException("this System only accepts entry of Book that are Publish after 1980");}
-                else bookList.add(book);
+        else bookList.add(book);
         logger.info("Book successfully added "+book);//todo-done
         return book;//todo-done
     }
@@ -87,16 +76,18 @@ public class ServiceImpl implements ServiceInterface {
      * @throws InvalidEntryException
      */
     @Override
-    public String deleteBook(long isbnNo){ //todo-done
+    public String deleteBook(long isbnNo){ //todo-don
+        Book book=null;
         for (Book bookObj : bookList) {
-            if (bookObj.getIsbnNo() == isbnNo){
-                bookList.remove(bookObj);}
-            if(bookList.contains(bookObj)){
-                throw new InvalidEntryException("Invalid ISBN Number or No book is present with this IsbnNo "+isbnNo);
-            }
-        }
+            if (bookObj.getIsbnNo() == isbnNo) {
+                book=bookObj;
+                bookList.remove(bookObj);
+                break;
+            }}
+        if(book==null)
+        { throw new InvalidEntryException("Invalid ISBN Number or No book is present with this IsbnNo "+isbnNo);}
         logger.info("Book deleted");
-        return "successfully deleted.....";
+        return "deleted";
     }
 
     /**
@@ -112,7 +103,7 @@ public class ServiceImpl implements ServiceInterface {
             if (bookObj.getIsbnNo() == isbnNo) {
                 bookObj.setIsbnNo(isbnNo);//todo-done
                 bookObj.setBookName(book.getBookName());
-                bookObj.setAuthor(book.getAuthor());
+                bookObj.setAuthorName(book.getAuthorName());
                 bookObj.setAuthorId((book.getAuthorId()));
                 bookObj.setYearOfPublication((book.getYearOfPublication()));
                 service.addBook(bookObj);
@@ -134,7 +125,7 @@ public class ServiceImpl implements ServiceInterface {
     public List<Book> searchByAuthor(String authorName) {//todo-done
         List<Book> bookList2 = new ArrayList<>();
         for(Book book1:bookList){
-            if (book1.getAuthor().equals(authorName))
+            if (book1.getAuthorName().equals(authorName))
                 bookList2.add(book1);
         }
         if(bookList2.isEmpty())
