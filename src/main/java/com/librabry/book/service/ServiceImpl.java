@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 @org.springframework.stereotype.Service
 public class ServiceImpl implements ServiceInterface {
+
     Logger logger = LoggerFactory.getLogger(Controller.class);
     List<Book> bookList = new ArrayList<>();
     public ServiceImpl() {
